@@ -1,0 +1,51 @@
+﻿<Window x:Class="Wolf_Installer.MenuInstaller"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wolf_Installer"
+        mc:Ignorable="d"
+        Height="300" Width="350" 
+        Background="Transparent"
+        WindowStyle="None" 
+        WindowStartupLocation="CenterScreen" 
+        AllowsTransparency="True">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType ="Button">
+                        <Grid>
+                            <Border x:Name="TextBoxBorder" CornerRadius="5" BorderThickness="0" Background="Purple">
+                                <ContentPresenter RecognizesAccessKey="True" TextBlock.TextAlignment="Center" TextBlock.Foreground="White"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="Coral"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed"  Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="Purple"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border x:Name="BorderMenu" CornerRadius="25,25,0,0" BorderThickness="0" Background="#FF3F3F46">
+        <StackPanel>
+            <Image HorizontalAlignment="Left" Height="145" Margin="80,10,0,0" VerticalAlignment="Top" Width="195" Source="Picture/Wolf.png" Stretch="Fill"/>
+
+            <Separator Margin="25,0"/>
+
+            <Label x:Name="LabelProgress" Content="" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="25,25,25.4,100"/>
+            <Label x:Name="LabelSleep" Content="" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="25,-95,25.4,100"/>
+            <Button x:Name="DownloadButton" VerticalAlignment="Bottom" Content="Установить" Margin="25,-100,25.4,50" Click="DownloadButton_Click"/>
+        </StackPanel>
+    </Border>
+
+</Window>

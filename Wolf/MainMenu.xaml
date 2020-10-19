@@ -1,0 +1,72 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wolf"
+        xmlns:Store="clr-namespace:Wolf.Store" x:Class="Wolf.MainMenu"
+        mc:Ignorable="d"
+        Title="Wolf" 
+        Height="650" 
+        Width="1000" 
+        Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStyle="None"         
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType ="Button">
+                        <Grid>
+                            <Border x:Name="TextBoxBorder" BorderBrush="Coral" BorderThickness="1">
+                                <ContentPresenter RecognizesAccessKey="True" TextBlock.FontSize="25" TextBlock.FontFamily="Tahoma" TextBlock.TextAlignment="Center" VerticalAlignment="Center" TextBlock.Foreground="White"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="#FF4B5259"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused"  Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="#FF4B5259"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border x:Name="BorderMenu" CornerRadius="0,0,25,25" BorderThickness="0" Background="#FF3F3F46" Margin="0,0,0,-0.4">
+        <Grid>
+            <Grid VerticalAlignment="Top" Height="35">
+                <Label Content="W O L F" HorizontalAlignment="Left" Foreground="White" FontFamily="Tahoma" FontSize="25" Margin="35,0,0,0" MouseLeftButtonDown="Window_MouseLeftButtonDown"/>
+
+                <Label x:Name="ExitLabel" Content="X" Foreground="White" FontSize="20" MouseLeftButtonUp="ExitMouseLeftButtonUp" MouseEnter="ExitLabel_MouseEnter" MouseLeave="ExitLabel_MouseLeave" Margin="965,0,10,0"/>
+                <Label x:Name="CollapseLabel" Content="-" Foreground="White" FontSize="26" MouseLeftButtonUp="CollapseMouseLeftButtonUp" HorizontalAlignment="Center" Margin="939,0,40,0"/>
+            </Grid>
+
+            <Separator Background="Coral" Margin="0,0,0,575"/>
+
+            <Border x:Name="MenuLeftPanel" Margin="0,39,820,-0.4" Background="#33363d" CornerRadius="0,0,0,25">
+                <Grid>
+                    <Button x:Name="LibraryButton" BorderBrush="Coral" BorderThickness="1" Background="Transparent" Content="Библиотеки" FontSize="20" Foreground="White" Height="50" Margin="10,200,10,361.2" Click="LibraryButton_Click" Visibility="Visible"/>
+                    <Button x:Name="HackButton" BorderBrush="Coral" BorderThickness="1" Background="Transparent" Content="Читы" FontSize="20" Foreground="White" Height="50" Margin="10,255,10,306.2" Click="HackButton_Click" Visibility="Visible"/>
+                    <Button x:Name="ProgramButton" BorderBrush="Coral" BorderThickness="1" Background="Transparent" Content="Программы" FontSize="20" Foreground="White" Height="50" Margin="10,310,10,251.2" Visibility="Hidden"/>
+                    <Border x:Name="PanelProfile" CornerRadius="0,0,0,25" Margin="0,536,0,0.2">
+                        <Grid>
+                            <Separator VerticalAlignment="Top" Background="Coral"/>
+                            <Label x:Name="ProfileName" Content="Name" Foreground="White" HorizontalAlignment="Center"  VerticalAlignment="Top"  FontSize="15" FontFamily="Tahoma"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+            <Store:CheatSection x:Name="CheatSection" HorizontalAlignment="Left" Height="611" Margin="180,39,0,-0.4" VerticalAlignment="Top" Width="820" Visibility="Hidden"/>
+            <Store:LibrarySection x:Name="LibrarySection" HorizontalAlignment="Left" Height="611" Margin="180,39,0,-0.4" VerticalAlignment="Top" Width="820" Visibility="Visible"/>
+        </Grid>
+    </Border>
+
+</Window>

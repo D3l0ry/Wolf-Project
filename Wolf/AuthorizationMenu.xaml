@@ -1,0 +1,104 @@
+﻿<Window x:Class="Wolf.AuthorizationMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wolf"
+        mc:Ignorable="d"
+        Title="Авторизация" 
+        Height="300" Width="350" 
+        Background="Transparent"
+        WindowStyle="None" 
+        WindowStartupLocation="CenterScreen" 
+        AllowsTransparency="True">
+
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="TextBlock.Foreground" Value="White"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+            <Setter Property="TextBlock.Height" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType ="TextBox">
+                        <Grid>
+                            <Border x:Name="TextBoxBorder" CornerRadius="5" BorderThickness="0" Background="Coral"/>
+                            <ScrollViewer x:Name="PART_ContentHost" BorderThickness="0" IsTabStop="False" Margin="2" Padding="{TemplateBinding Padding}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="Coral"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="Coral"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="PasswordBox">
+            <Setter Property="TextBlock.Foreground" Value="White"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+            <Setter Property="TextBlock.Height" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType ="PasswordBox">
+                        <Grid>
+                            <Border x:Name="TextBoxBorder" CornerRadius="5" BorderThickness="0" Background="Coral"/>
+                            <ScrollViewer x:Name="PART_ContentHost" BorderThickness="0" IsTabStop="False" Margin="2" Padding="{TemplateBinding Padding}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="Coral"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="Coral"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType ="Button">
+                        <Grid>
+                            <Border x:Name="TextBoxBorder" CornerRadius="5" BorderThickness="0" Background="Purple">
+                                <ContentPresenter RecognizesAccessKey="True" TextBlock.TextAlignment="Center" TextBlock.Foreground="White"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="Coral"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed"  Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="Purple"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border x:Name="BorderMenu" CornerRadius="25" BorderThickness="0" Background="#FF3F3F46">
+        <StackPanel>
+            <Image HorizontalAlignment="Left" Height="145" Margin="80,10,0,0" VerticalAlignment="Top" Width="195" Source="Picture/Logo/Wolf.png" Stretch="Fill"/>
+            <Separator Margin="25,0"/>
+
+            <Label Content="Логин" Foreground="White" Margin="25,0,25.4,0"/>
+            <TextBox x:Name="LoginBox" Margin="25,0,25.4,0"/>
+
+            <Label Content="Пароль" Foreground="White" Margin="25,0,25.4,0"/>
+            <PasswordBox x:Name="PasswordBox" Margin="25,0,25.4,0"/>
+
+            <Label x:Name="RegistrationLabel" Content="Зарегистрироваться" Foreground="White" Margin="0,0,0.4,0" Height="20" FontSize="7" HorizontalAlignment="Center" MouseDoubleClick="RegistrationDoubleClick"/>
+            <Button x:Name="AuthorizationButton" Content="Авторизироваться" Margin="25,0,25.4,100" Click="AuthorizationClick"/>
+        </StackPanel>
+    </Border>
+    
+</Window>

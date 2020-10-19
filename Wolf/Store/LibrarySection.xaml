@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Wolf.Store.LibrarySection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Wolf.Store"
+             mc:Ignorable="d"
+             d:DesignHeight="611"
+             d:DesignWidth="820" Loaded="LibrarySection_Loaded" FontFamily="Tahoma">
+
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType ="Button">
+                        <Grid>
+                            <Border x:Name="TextBoxBorder" CornerRadius="10" BorderThickness="0" Background="Coral">
+                                <ContentPresenter RecognizesAccessKey="True" TextBlock.TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" TextBlock.Foreground="White" TextBlock.FontSize="20"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="Coral"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed"  Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="Background" Value="Orange"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Border CornerRadius="0,0,25,0" Background="#FF3F3F46">
+        <Grid>
+            <Border HorizontalAlignment="Left"  VerticalAlignment="Top" Width="800" Height="85" Margin="10,10,0,0" CornerRadius="25" Background="Purple" >
+                <Grid>
+                    <Label x:Name="OnlineVersionLabel" Content="Онлайн версия:" Foreground="White" VerticalAlignment="Bottom" FontSize="10" HorizontalAlignment="Right" Margin="0,0,10.2,61.8" Height="23" Width="175"/>
+                    <Label Content="UIEngine" Foreground="White" FontFamily="Tahoma" FontSize="45" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10"/>
+                    <Label Foreground="White" FontSize="17" Height="65" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="226,10,190.2,9.8" Width="379">
+                        <TextBlock TextWrapping="Wrap" Margin="0,5">Движок для создания читов и других вспомогательных средств при разработке ПО</TextBlock>
+                    </Label>
+                    <Button x:Name="UIEngineDownloadButton" Content="Скачать" VerticalAlignment="Center" HorizontalAlignment="Right" Height="40" Width="175" Margin="10" Click="UIEngineDownloadButton_Click"/>
+                    <Label x:Name="LocalVersionLabel" Content="Локальная версия:" Foreground="White" VerticalAlignment="Bottom" FontSize="10" HorizontalAlignment="Right" Margin="0,0,10.2,-0.2" Height="23" Width="175"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+
+</UserControl>
